@@ -1,6 +1,13 @@
 Yes/No app
 ==========
 
+In root of git
+--------------
+git submodule init
+git submodule update
+
+In YesNoApp directory
+---------------------
 cordova prepare
 bower install
 ionic config build

@@ -1,3 +1,3 @@
-[submodule "YesNoApp/www/lib/persistence"]
+[submodule "YesNoApp/www/lib/persistencejs"]
 	path = YesNoApp/www/lib/persistence
-	url = https://github.com/coresmart/persistencejs
+	url = https://github.com/coresmart/persistencejs.git
