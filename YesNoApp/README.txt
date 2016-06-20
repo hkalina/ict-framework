@@ -1,13 +1,8 @@
 Yes/No app
 ==========
 
-In root of git
---------------
 git submodule init
 git submodule update
-
-In YesNoApp directory
----------------------
 cordova prepare
 bower install
 ionic config build
@@ -19,6 +14,8 @@ Troubleshooting:
     cordova platform update ios
   unable to install iso-deploy:
     sudo npm -g install ios-deploy --unsafe-perm=true
+  Module 'ionic.service.core' is not available!
+    ionic config build
 
 IPA obtaining
 *************
