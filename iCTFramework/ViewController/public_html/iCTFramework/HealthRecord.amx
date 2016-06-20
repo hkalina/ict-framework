@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+                  
+  <amx:popup id="deletePopup" inlineStyle="width:100%;">
+        <amx:tableLayout id="tl1" halign="center" inlineStyle="width:100%;">
+            <amx:rowLayout id="rl4">
+                <amx:cellFormat id="cf5">
+                    <amx:outputText value="#{viewcontrollerBundle.ALERT_DELETE_RECORD}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl5">
+                <amx:cellFormat id="cf6" halign="center">
+                    <amx:commandButton text="#{viewcontrollerBundle.CANCEL}">
+                        <amx:closePopupBehavior popupId="deletePopup"/>
+                    </amx:commandButton>
+                    <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_DELETE}" action="__back" actionListener="#{HealthRecordBean.deleteCurrent()}" />
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+  </amx:popup>
+                  
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{UserBean.current.fullname} - #{viewcontrollerBundle.HEALTH_RECORD_HEAD}" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" text="Zpět" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_DELETE}"
+                         rendered="#{HealthRecordBean.current.id !=0}">
+        <amx:showPopupBehavior popupId="deletePopup" alignId="pp1" align="bottomCenter"/>
+      </amx:commandButton>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_SAVE}" action="__back" actionListener="#{HealthRecordBean.saveCurrent()}" />
+    </amx:facet>
+    <amx:panelFormLayout id="pfl1" fieldHalign="start" labelWidth="130">
+      <amx:inputDate label="#{viewcontrollerBundle.COMMON_RECORD_DATE}" value="#{HealthRecordBean.current.date}"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_STATE}" value="#{HealthRecordBean.current.status}" rows="2"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_ANAMNESIS}" value="#{HealthRecordBean.current.anamnesis}" rows="2"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_SUMMARY}" value="#{HealthRecordBean.current.diagnosticSummary}" rows="2"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_RECOMMENDATION}" value="#{HealthRecordBean.current.recommendation}" rows="2"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_HEALTH_MEASURE}" value="#{HealthRecordBean.current.regimeMeasures}" rows="2"/>
+      <amx:inputText label="#{viewcontrollerBundle.HEALTH_RECORD_END}" value="#{HealthRecordBean.current.conclusion}" rows="2"/>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

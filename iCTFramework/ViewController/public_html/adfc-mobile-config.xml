@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.oracle.com/adf/controller http://xmlns.oracle.com/adf/controller/adfc-mobile-config.xsd">
+    <managed-bean>
+        <managed-bean-name>ApplicationBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.ApplicationBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>LoginBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.LoginBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>UserBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.UserBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>EducationalRecordBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.EducationalRecordBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>HealthRecordBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.HealthRecordBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SocialRecordBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.SocialRecordBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__1">
+        <managed-bean-name>CopyBean</managed-bean-name>
+        <managed-bean-class>maf.isenframework.isenframeworkapplication.beans.CopyBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+</adfc-mobile-config> 

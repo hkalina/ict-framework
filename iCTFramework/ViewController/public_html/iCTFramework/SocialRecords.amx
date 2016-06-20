@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{UserBean.current.fullname} - #{viewcontrollerBundle.SOCIAL_RECORD_HEAD}" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" text="Zpět" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_NEW}" action="edit">
+        <amx:setPropertyListener from="#{SocialRecordBean.blank}" to="#{SocialRecordBean.current}"/>
+      </amx:commandButton>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_EDIT}" action="edit"/>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_COPY}" action="copy">
+        <amx:setPropertyListener from="SOCIAL" to="#{CopyBean.recordsTypeForCopy}" />
+      </amx:commandButton>
+    </amx:facet>
+    <amx:tableLayout id="tl1" inlineStyle="margin-top:10px;">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1">
+          <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORDS_LAST_RECORD}:" inlineStyle="margin-top:10px; font-weight:bold;"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl9">
+        <amx:cellFormat id="cf10">
+          <amx:spacer id="s2" height="10"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORD_DATE}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.date}" inlineStyle="margin-left:38px;">
+                  <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                </amx:outputText>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.SOCIAL_RECORDS_RELATIONSHIP}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.relationships}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.SOCIAL_RECORD_SOCIAL_SITUATION}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.socialSituation}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.SOCIAL_RECORD_ALIMENTATION}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.eating}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.SOCIAL_RECORD_HYGIENE}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.hygiene}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.SOCIAL_RECORD_RISK_SITUATION}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{SocialRecordBean.current.riskSituations}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="40"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORDS_HISTORY}:" inlineStyle="font-weight:bold;" />
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf6">
+          <amx:listView var="socialRow" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" value="#{SocialRecordBean.currentUserRecords}">
+            <amx:listItem id="li1" action="edit">
+              <amx:setPropertyListener from="#{socialRow}" to="#{SocialRecordBean.current}" />
+              <amx:tableLayout width="100%" id="tl5">
+                <amx:rowLayout id="rl18">
+                  <amx:cellFormat width="10px" rowSpan="2" id="cf26"/>
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf21">
+                    <amx:tableLayout id="tl6">
+                      <amx:rowLayout id="rl19">
+                        <amx:cellFormat id="cf22">
+                          <amx:outputText value="#{socialRow.date}">
+                            <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                          </amx:outputText>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf24">
+                          <amx:spacer id="s1" width="10"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf23">
+                          <amx:outputText value="#{socialRow.relationships}"/>
+                        </amx:cellFormat>
+                      </amx:rowLayout>
+                    </amx:tableLayout>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl17">
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf25">
+                    <amx:outputText value="#{socialRow.riskSituations}" styleClass="adfmf-listItem-captionText"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+              </amx:tableLayout>
+            </amx:listItem>
+          </amx:listView>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:panelPage>
+</amx:view>

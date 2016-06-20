@@ -1,0 +1,21 @@
+<ion-view view-title="{{type=='shared'?'Offline katalog':'Karty asistenta'}}">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-search" ng-click="search()">Hledat</button>
+    <button class="button button-icon ion-arrow-expand" ng-click="copyAll()">Kopírovat vše</button>
+    <a class="button button-icon ion-plus" href="#/app/option/new{{type}}">Přidat</a>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <ion-list click-for-options-wrapper>
+      <ion-item click-for-options ng-repeat="option in optionsFiltered" class="item-thumbnail-left">
+        <img ng-src="{{option.image}}">
+        <h2>{{option.name}}</h2>
+        <p>{{option.text}}</p>
+        <ion-option-button class="button-balanced" ui-sref="app.option({ optionId: option.id })" ng-if="loggedId == option.owner">Upravit</ion-option-button>
+        <ion-option-button class="button-calm" ng-click="copyOption(option)">Kopírovat</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="removeOption(option)" ng-if="loggedId == option.owner">Odstranit</ion-option-button>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="Online katalog">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-search" ng-click="search()">Hledat</button>
+    <button class="button button-icon ion-arrow-expand" ng-click="copyAll()">Kopírovat vše</button>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <ion-list click-for-options-wrapper>
+      <ion-item click-for-options ng-repeat="option in optionsFiltered" class="item-thumbnail-left">
+        <img ng-src="{{option.image}}">
+        <h2>{{option.name}}</h2>
+        <p>{{option.text}}</p>
+        <ion-option-button class="button-calm" ng-click="copyOption(option)">Kopírovat</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="removeOption(option)">Odstranit</ion-option-button>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

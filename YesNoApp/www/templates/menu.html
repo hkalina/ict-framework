@@ -1,0 +1,90 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-energized">
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Zpět
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-if="!$root.urlParams.manage" ng-click="$root.userEscape()"></button>
+        <button class="button button-icon button-clear ion-navicon" ng-if="$root.urlParams.manage" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" ng-if="$root.urlParams.manage">
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      
+      <div ng-cloak class="menu-tabs"><md-content><md-tabs md-dynamic-height md-border-bottom>
+        <md-tab>
+          <md-tab-label>
+            Tvorba
+          </md-tab-label>
+          <md-tab-body>
+            <ion-list>
+              <ion-item>
+                <b>Zvolený klient</b>
+              </ion-item>
+              <ion-item menu-close href="#/app/lists/private">
+                Seznamy párů
+              </ion-item>
+              <ion-item>
+                <b>Vaše tvorba</b>
+              </ion-item>
+              <ion-item menu-close href="#/app/options/private">
+                Karty
+              </ion-item>
+            </ion-list>
+          </md-tab-body>
+        </md-tab>
+        <md-tab>
+          <md-tab-label>
+            Sdílení
+          </md-tab-label>
+          <md-tab-body>
+            <ion-list>
+              <ion-item>
+                <b>Offline</b>
+              </ion-item>
+              <ion-item menu-close href="#/app/lists/shared">
+                Seznamy párů
+              </ion-item>
+              <ion-item menu-close href="#/app/options/shared">
+                Karty
+              </ion-item>
+              <ion-item menu-close href="#/app/servers" class="item-icon-right">
+                <b>Online</b>
+                <i class="icon item-icon-right ion-gear-a"></i>
+              </ion-item>
+              <div ng-repeat="server in $root.servers">
+              <ion-item menu-close href="#/app/serverlists/{{server.id}}">
+                {{server.name}} - seznamy
+              </ion-item>
+              <ion-item menu-close href="#/app/servercards/{{server.id}}">
+                {{server.name}} - karty
+              </ion-item>
+              </div>
+            </ion-list>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs></md-content></div>
+      
+    </ion-content>
+    <ion-footer-bar class="menu-footer">
+      <ion-list>
+        <ion-item menu-close ng-click="escapeFromManage()" ng-if="!$root.urlParams.notInstalled" class="item-icon-right">
+          <b>Opustit aplikaci</b>
+          <i class="icon item-icon-right ion-android-exit"></i>
+        </ion-item>
+        <ion-item menu-close ng-click="installIntoIct()" ng-if="$root.urlParams.notInstalled">
+          Propojit s iCT-frameworkem
+        </ion-item>
+        <ion-item menu-close href="#/app/about">
+          O aplikaci
+        </ion-item>
+      </ion-list>
+    </ion-footer-bar>
+  </ion-side-menu>
+</ion-side-menus>

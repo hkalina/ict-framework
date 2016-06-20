@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="iCTFramework" name="iCTFramework">
+    <adfmf:content id="iCTFramework.1">
+      <adfmf:amx file="iCTFramework/task-flow-definition.xml#task-flow-definition">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="iCTFramework/task-flow-scripts.js" id="i1"/>
+          <adfmf:include type="JavaScript" file="lib/jquery.min.js" id="i2"/>
+          <adfmf:include type="JavaScript" file="lib/patternLock.min.js" id="i3"/>
+          <adfmf:include type="StyleSheet" file="lib/patternLock.css" id="i4"/>
+        </adfmf:includes>
+      </adfmf:amx>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

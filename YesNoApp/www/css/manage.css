@@ -1,0 +1,84 @@
+
+.imagePreview {
+  display: block;
+  max-width: 70%;
+  clear: both;
+  margin: 5px 0px;
+}
+
+.optionImage {
+  width: 100%;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  float: left;
+  margin-right: 10px;
+}
+
+.item-image img:first-child, .item-image .list-img {
+  width: 50px;
+  vertical-align: top;
+}
+
+.list-thumbnail.item-image {
+  white-space: normal;
+  line-height: 0px;
+}
+.list-thumbnail.item-image img {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+a.option {
+  text-decoration: none;
+}
+
+.listedit .item-content {
+  padding: 0px;
+}
+.listedit a.option {
+  padding: 20px;
+}
+
+.popup {
+  width: 21.5em !important;
+}
+
+.colorPicker .color {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+}
+
+.about {
+  text-align: center;
+  padding: 3em;
+}
+
+.about {
+  font-size: 1.3em;
+}
+
+.menu-tabs .md-padding {
+  padding: 1px !important;
+}
+.menu-tabs .item-content, .menu-footer .item-content {
+  padding: 16px;
+}
+.menu-tabs .item-icon-right, .menu-footer .item-icon-right {
+  padding-right: 2px;
+}
+.menu-tabs .md-tab {
+  font-weight: bold;
+}
+.menu .scroll-content {
+  bottom: 110px;
+}
+.menu-footer {
+  height: 110px;
+  padding: 1px !important;
+}
+.menu-footer ion-list {
+  width: 100%;
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="yesnoweb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Server aplikace ANO/NE</title>
+    <base href="/"></base>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Server aplikace ANO/NE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="card({ cardId: 'new' })">Přidat kartu</a></li>
+            <li><a ui-sref="cards()">Seznam karet</a></li>
+          </ul>
+          <!--
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>uzivatel</a></li>
+            <li><a href="./">Odhlásit</a></li>
+          </ul>
+          -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container" id="container" ui-view="content"></div>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-ui-router/angular-ui-router.js"></script>
+    <script src="/angular-resource/angular-resource.js"></script>
+    <script src="/angular-ui-bootstrap/ui-bootstrap.js"></script>
+    <script src="/ng-file-upload/ng-file-upload.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

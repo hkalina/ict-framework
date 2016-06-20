@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{UserBean.current.fullname} - #{viewcontrollerBundle.EDUCATION_RECORD_HEAD}" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" text="Zpět" action="__back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_NEW}" action="edit">
+        <amx:setPropertyListener from="#{EducationalRecordBean.blank}" to="#{EducationalRecordBean.current}"/>
+      </amx:commandButton>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_EDIT}" action="edit"/>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORDS_COPY}" action="copy">
+        <amx:setPropertyListener from="EDUCATIONAL" to="#{CopyBean.recordsTypeForCopy}" />
+      </amx:commandButton>
+    </amx:facet>
+    <amx:tableLayout id="tl1" inlineStyle="margin-top:10px;">
+      <amx:rowLayout id="rl1">
+        <amx:cellFormat id="cf1">
+          <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORDS_LAST_RECORD}:" id="ot2" inlineStyle="margin-top:10px; font-weight:bold;"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl9">
+        <amx:cellFormat id="cf10">
+          <amx:spacer id="s2" height="10"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf2">
+          <amx:tableLayout id="tl2">
+            <amx:rowLayout id="rl8">
+              <amx:cellFormat id="cf7">
+                <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORD_DATE}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf9" >
+                <amx:outputText value="#{EducationalRecordBean.current.date}" id="ot5" inlineStyle="margin-left:38px;">
+                  <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                </amx:outputText>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_SPU}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{EducationalRecordBean.current.needs}" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf3">
+          <amx:spacer id="s3" height="10"/>
+          <amx:tableLayout id="tl3">
+            <amx:rowLayout id="rl10">
+              <amx:cellFormat id="cf11">
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_CHARACTERISTIC}:" id="ot6" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf12">
+                <amx:outputText value="#{EducationalRecordBean.current.characteristic}" id="ot10" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout id="rl7">
+        <amx:cellFormat id="cf8">
+          <amx:spacer id="s5" height="10"/>
+          <amx:tableLayout id="tl7">
+            <amx:rowLayout id="rl12">
+              <amx:cellFormat id="cf15">
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_ACHIEVE_COMPETENCE}:" id="ot4" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf16">
+                <amx:outputText value="#{EducationalRecordBean.current.acquiredCompetences}" id="ot7" inlineStyle="margin-left:25px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_GOALS_COMPETENCE}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{EducationalRecordBean.current.targetCompetences}" inlineStyle="margin-left:7px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_METHODS}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{EducationalRecordBean.current.methods}" inlineStyle="margin-left:7px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="10"/>
+          <amx:tableLayout>
+            <amx:rowLayout>
+              <amx:cellFormat>
+                <amx:outputText value="#{viewcontrollerBundle.EDUCATION_RECORD_THERAPY}:" inlineStyle="margin-top:10px; margin-left:25px; margin-right:0px;"/>
+              </amx:cellFormat>
+              <amx:cellFormat>
+                <amx:outputText value="#{EducationalRecordBean.current.therapies}" inlineStyle="margin-left:7px;"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout>
+        <amx:cellFormat>
+          <amx:spacer height="40"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf5">
+          <amx:outputText value="#{viewcontrollerBundle.COMMON_RECORDS_HISTORY}:" id="ot3" inlineStyle="font-weight:bold;" />
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf6">
+          <amx:listView var="eduRow" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" value="#{EducationalRecordBean.currentUserRecords}">
+            <amx:listItem id="li1" action="edit">
+              <amx:setPropertyListener from="#{eduRow}" to="#{EducationalRecordBean.current}" />
+              <amx:tableLayout width="100%" id="tl5">
+                <amx:rowLayout id="rl18">
+                  <amx:cellFormat width="10px" rowSpan="2" id="cf26"/>
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf21">
+                    <amx:tableLayout id="tl6">
+                      <amx:rowLayout id="rl19">
+                        <amx:cellFormat id="cf22">
+                          <amx:outputText value="#{eduRow.date}">
+                            <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                          </amx:outputText>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf24">
+                          <amx:spacer id="s1" width="10"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf23">
+                          <amx:outputText value="#{eduRow.needs}"/>
+                        </amx:cellFormat>
+                      </amx:rowLayout>
+                    </amx:tableLayout>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl17">
+                  <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf25">
+                    <amx:outputText value="#{eduRow.characteristic}" styleClass="adfmf-listItem-captionText"/>
+                  </amx:cellFormat>
+                </amx:rowLayout>
+              </amx:tableLayout>
+            </amx:listItem>
+          </amx:listView>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:panelPage>
+</amx:view>

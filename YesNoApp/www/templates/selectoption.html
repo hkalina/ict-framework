@@ -1,0 +1,20 @@
+<ion-view view-title="Výběr karty">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-search" ng-click="search()">Hledat</button>
+    <a class="button button-icon ion-plus" href="#/app/option/newprivate">Přidat novou</a>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <ion-list click-for-options-wrapper>
+      <ion-item click-for-options ng-repeat="option in optionsFiltered" class="item-thumbnail-left">
+        <img ng-src="{{option.image}}">
+        <h2>{{option.name}}</h2>
+        <p>{{option.shared?'Sdílené karty':'Moje karty'}}</p>
+        <ion-option-button class="button-energized" ng-click="selectOption(option)">Vybrat do páru</ion-option-button>
+        <ion-option-button class="button-balanced" ui-sref="app.option({ optionId: option.id })" ng-if="loggedId == option.owner">Upravit</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="removeOption(option)" ng-if="loggedId == option.owner">Odstranit</ion-option-button>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

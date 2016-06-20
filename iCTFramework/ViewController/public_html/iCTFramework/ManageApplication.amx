@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+  <amx:popup id="deletePopup" inlineStyle="width:100%;">
+        <amx:tableLayout id="tl1" halign="center" inlineStyle="width:100%;">
+            <amx:rowLayout id="rl4">
+                <amx:cellFormat id="cf5">
+                    <amx:outputText value="#{viewcontrollerBundle.ALERT_DELETE_RECORD}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl5">
+                <amx:cellFormat id="cf6" halign="center">
+                    <amx:commandButton text="#{viewcontrollerBundle.CANCEL}">
+                        <amx:closePopupBehavior popupId="deletePopup"/>
+                    </amx:commandButton>
+                    <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_DELETE}" action="__back" actionListener="#{ApplicationBean.deleteCurrent()}" />
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+  </amx:popup>
+
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{viewcontrollerBundle.MANAGE_APPLICATION_EDIT_APPLICATION}" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton action="__back" id="back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_DELETE}"
+                         rendered="#{ApplicationBean.current.id !=0}">
+        <amx:showPopupBehavior popupId="deletePopup" alignId="pp1" align="bottomCenter"/>
+      </amx:commandButton>
+      <amx:commandButton text="#{viewcontrollerBundle.COMMON_RECORD_SAVE}" action="__back" actionListener="#{ApplicationBean.saveCurrent()}" />
+    </amx:facet>
+    
+    <amx:panelFormLayout labelWidth="115" labelPosition="start" fieldHalign="start">
+      <amx:inputText label="#{viewcontrollerBundle.MANAGE_APPLICATION_NAME}" value="#{ApplicationBean.current.name}"/>
+      <amx:inputText label="#{viewcontrollerBundle.MANAGE_APPLICATION_URL_SCHEME}" value="#{ApplicationBean.current.urlScheme}"/>
+      <amx:panelLabelAndMessage label="#{viewcontrollerBundle.MANAGE_APPLICATION_ICON_OF_APPLICATION}" id="plam1">
+        <amx:tableLayout id="tl2">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1">
+              <amx:image id="i1" source="#{ApplicationBean.currentImagePathApp}" styleClass="mgrProfileImage"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf2">
+              <amx:spacer id="s1" width="20"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf3">
+              <amx:commandButton text="#{viewcontrollerBundle.EDIT_USER_CAMERA}" id="cb1" actionListener="#{ApplicationBean.getPictureFromDeviceCamera}"/>
+              <amx:commandButton text="#{viewcontrollerBundle.EDIT_USER_FROM_DEVICE}" id="cb2"
+                                 actionListener="#{ApplicationBean.getPictureFromDeviceAlbum}"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+    
+  </amx:panelPage>
+</amx:view>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                    id="lb1"/>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{viewcontrollerBundle.CHOOSE_ISEN_APPLICATION}"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="back" action="__back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton action="manage" text="#{viewcontrollerBundle.CHOOSE_ISEN_APPLICATION_MANAGE}" rendered="#{LoginBean.logged.isAdmin}"/>
+        </amx:facet>
+        <amx:listView var="row" value="#{UserBean.current.userApplicationsList}"
+                    showMoreStrategy="autoScroll"
+                    bufferStrategy="viewport" id="lv1" layout="cards" styleClass="teamCardList cardList"
+                    collapsibleDividers="true" showDividerCount="true"
+                    inlineStyle="border-collapse:collapse; max-height:none; max-width:none; width:auto; box-decoration-break:slice; size:auto; widows:2; table-layout:auto; caption-side:before;">
+            <amx:listItem id="li1" showLinkIcon="false" action="show" shortDesc="Team List Item">
+                <amx:setPropertyListener from="#{row}" to="#{ApplicationBean.current}"/>
+                <amx:tableLayout id="tl2" width="100%"
+                                 inlineStyle="background-color:#cfdce9;margin:0"
+                                 shortDesc="table">
+                    <amx:rowLayout id="rl14">
+                        <amx:cellFormat id="cf32" width="100%" height="100" halign="center" inlineStyle="padding-top:10px"
+                                        shortDesc="cell">
+                            <amx:image source="#{row.imagePath}" id="i8" shortDesc="Apps Image"
+                                       styleClass="tabletProfileImage"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl15">
+                        <amx:cellFormat id="cf33" halign="center" height="24" shortDesc="cell">
+                            <amx:outputText value="#{row.name}" styleClass="teamCardText"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl19">
+                        <amx:cellFormat id="cf34" halign="center" height="40" valign="top" shortDesc="cell">
+                            <amx:outputText value="Výuková aplikace" styleClass="teamCardText teamCardTitle"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

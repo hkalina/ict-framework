@@ -1,0 +1,46 @@
+<ion-view view-title="Úprava karty">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-checkmark" ng-click="saveOption()">Uložit</button>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Název karty</span>
+        <input type="text" ng-model="option.name" placeholder="Název možnosti">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Nápis na tlačítku (pokud se má lišit od názvu karty)</span>
+        <input type="text" ng-model="option.text" placeholder="Text na tlačítku">
+      </label>
+      <div class="item item-input item-stacked-label">
+        <span class="input-label">Barva pozadí</span>
+        <input type="text" ng-model="option.color" placeholder="Barva tlačítka">
+        <button class="button button-energized" color-picker ng-model="option.color" modal-title="Barva" color-box="{{option.color}}">
+          Vybrat jako RGB
+        </button>
+        <button class="button button-energized" ng-model="option.color" modal-title="Barva" color-box="{{option.color}}" ng-click="pickColor()">
+          Vybrat z nabídky
+        </button>
+      </div>
+      <div class="item item-input item-stacked-label item-thumbnail-left">
+        <span class="input-label">Obrázek</span>
+        <button class="button button-energized" ng-click="captureImage()">Vyfotit</button>
+        <button class="button button-energized" ng-click="pickImage()">Z galerie</button>
+        <button class="button button-assertive" ng-click="removeImage()" ng-if="option.image">Odebrat</button>
+        <!--<input type="text" ng-model="option.image" placeholder="Obrázek na tlačítku">-->
+        <img ng-src="{{option.image}}" ng-if="option.image" class="imagePreview">
+      </div>
+      <div class="item item-input item-stacked-label">
+        <span class="input-label">Zvuk po stisknutí</span>
+        <button class="button button-energized" ng-click="captureSound()">Nahrát</button>
+        <button class="button button-energized" ng-click="pickSound()">Z galerie</button>
+        <button class="button button-balanced" ng-click="playSound()" ng-if="option.sound && !playing">Přehrát</button>
+        <button class="button button-balanced" ng-click="stopSound()" ng-if="playing">Zastavit</button>
+        <button class="button button-assertive" ng-click="removeSound()" ng-if="option.sound">Odebrat</button>
+        <!--<input type="text" ng-model="option.sound" placeholder="Zvuk po stiknutí">-->
+      </div>
+    </div>
+    
+  </ion-content>
+</ion-view>

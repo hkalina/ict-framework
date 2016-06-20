@@ -1,0 +1,9 @@
+#.*
+.metadata
+.settings
+.main.android
+.data
+.DS_Store
+build
+classes
+deploy

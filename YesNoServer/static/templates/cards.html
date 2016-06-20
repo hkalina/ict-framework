@@ -1,0 +1,12 @@
+
+<div class="media" ng-repeat="card in cards">
+  <a class="media-left" ui-sref="card({ cardId: card.id })">
+    <img class="media-object" src="/download/{{card.image}}" alt="(Obrázek)" ng-if="card.image" style="border: 5px solid {{card.color}}">
+    <img class="media-object" src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="(Obrázek)" ng-if="!card.image">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">{{card.name}}</h4>
+    {{card.text}}
+  </div>
+</div>
+

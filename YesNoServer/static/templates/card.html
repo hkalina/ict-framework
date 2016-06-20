@@ -1,0 +1,51 @@
+<form>
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 form-control-label">Název karty</label>
+    <div class="col-sm-10">
+      <input type="text" id="name" ng-model="card.name" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-sm-2 form-control-label">Text na kartě</label>
+    <div class="col-sm-10">
+      <input type="text" id="text" ng-model="card.text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="color" class="col-sm-2 form-control-label">Barva</label>
+    <div class="col-sm-10">
+      <input type="text" id="color" ng-model="card.color" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary" ng-click="save()">Uložit</button>
+      
+      <button type="submit" class="btn btn-warning" ng-click="delete(card)">Smazat</button>
+    </div>
+  </div>
+  <div class="form-group row" ng-if="card.id">
+    <label for="image" class="col-sm-2 form-control-label">Obrázek</label>
+    <div class="col-sm-10">
+      <button type="file" ngf-select="uploadFile($file, $invalidFiles, 'image')" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Vybrat</button>
+      {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+        <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+      </span>
+      {{errorMsg}}
+    </div>
+  </div>
+  <div class="form-group row" ng-if="card.id">
+    <label for="image" class="col-sm-2 form-control-label">Zvuk</label>
+    <div class="col-sm-10">
+      <button type="file" ngf-select="uploadFile($file, $invalidFiles, 'sound')" accept="audio/*" ngf-max-size="1MB">Vybrat</button>
+      {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+        <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+      </span>
+      {{errorMsg}}
+    </div>
+  </div>
+  <img src="/download/{{card.image}}" alt="(Obrázek)" ng-if="card.image" style="border: 20px solid {{card.color}}">
+</form>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="copy-task-flow-definition">
+        <default-activity>ClientSelection</default-activity>
+        <view id="ClientSelection">
+            <page>/iCTFramework/ClientSelection.amx</page>
+        </view>
+        <view id="RecordsSelection">
+            <page>/iCTFramework/RecordsSelection.amx</page>
+        </view>
+        <view id="TargetClientsSelection">
+            <page>/iCTFramework/TargetClientsSelection.amx</page>
+        </view>
+        <task-flow-return id="Back">
+            <outcome>
+                <name>Back</name>
+            </outcome>
+        </task-flow-return>
+        <control-flow-rule id="__13">
+            <from-activity-id>ClientSelection</from-activity-id>
+            <control-flow-case id="__14">
+                <from-outcome>next</from-outcome>
+                <to-activity-id>RecordsSelection</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__15">
+            <from-activity-id>RecordsSelection</from-activity-id>
+            <control-flow-case id="__16">
+                <from-outcome>next</from-outcome>
+                <to-activity-id>TargetClientsSelection</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__17">
+            <from-activity-id>TargetClientsSelection</from-activity-id>
+            <control-flow-case id="__18">
+                <from-outcome>next</from-outcome>
+                <to-activity-id>Back</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+    </task-flow-definition>
+</adfc-config>

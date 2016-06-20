@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt" xmlns:ict="http://xmlns.ictframework/ict">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                    id="lb1"/>
+    <amx:panelPage id="pdenied">
+        <amx:facet name="header">
+            <amx:outputText value="#{viewcontrollerBundle.LOG_IN}" inlineStyle="text-align:center;"/>
+        </amx:facet>
+        <amx:outputText value="#{LoginBean.formMessage}"
+                        inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"/>
+        <amx:inputText label="#{viewcontrollerBundle.User_name}" autoCorrect="off"
+                       value="#{LoginBean.formLogin}" hintText="#{viewcontrollerBundle.Hint_user_name}"/>
+        <amx:inputText label="#{viewcontrollerBundle.PASSWORD}" secret="true"
+                       value="#{LoginBean.formPassword}" autoCorrect="off"
+                       hintText="#{viewcontrollerBundle.HINT_PASSWORD}" keyboardDismiss="go"/>
+
+        <amx:tableLayout halign="center">
+            <amx:rowLayout>
+                <amx:cellFormat halign="center" inlineStyle="width:100%;">
+                    <amx:commandButton text="#{viewcontrollerBundle.BUTTON_LOG_IN}"
+                                       actionListener="#{LoginBean.tryLogIn()}"
+                                       inlineStyle="color:White; background-color:#0572ce; padding: 1em; text-align:center; flex-item-align:center;"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+
+        <amx:tableLayout halign="center">
+            <amx:rowLayout>
+                <amx:cellFormat halign="center" inlineStyle="width:100%;">
+                    <ict:gesture destination="LoginBean.formGesture" autoreset="true" onComplete="LoginBean.tryLogIn()"></ict:gesture>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        
+        <amx:verbatim>
+        <![CDATA[
+            <p align="center">Aplikace vznikla v rámci neformálního projektu <b>počítačové terapie</b> na <b>FIT VUT v Brně</b> za podpory společnosti <b>Red Hat</b>.</p>
+        ]]>
+        </amx:verbatim>
+        
+    </amx:panelPage>
+</amx:view>

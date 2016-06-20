@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="maf.isenframework.isenframeworkview.ViewControllerBundle"
+        datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="Zdravotníprofil">
+        <source>Zdravotní\nprofil</source>
+        <target/>
+        <note>styleClass="PreWrap"</note>
+      </trans-unit>
+      <!--Start LogIn view-->
+      <trans-unit id="EXAMPLE">
+        <source>Example</source>
+        <target/>
+        <note>Pokus</note>
+      </trans-unit>
+      <trans-unit id="LOG_IN">
+        <source>iCT-framework</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="User_name">
+        <source>User name:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Hint_user_name">
+        <source>User name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD">
+        <source>Password:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HINT_PASSWORD">
+        <source>Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BUTTON_LOG_IN">
+        <source>Log in</source>
+        <target/>
+      </trans-unit>
+      <!--End LogIn view-->
+      <!--Start Aplication view.-->
+      <trans-unit id="RESTRICTION_OF_TIME_IN_APPLICATION">
+        <source>Set restriction of openining time of application</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MINUTES">
+        <source>Minutes:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="APLICATION_MANAGE">
+        <source>Manage application</source>
+        <target/>
+      </trans-unit>
+      <!--End Aplication view.-->
+      <!--Start Aplications view-->
+      <trans-unit id="LOG_OUT">
+        <source>Log out</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS">
+        <source>Users</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EXIT">
+        <source>Exit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHOOSE_ISEN_APPLICATION">
+        <source>Application choice</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHOOSE_ISEN_APPLICATION_MANAGE">
+        <source>Manage</source>
+        <target/>
+      </trans-unit>
+      <!--End Aplications view-->
+      <!--Start ClientSelection view-->
+      <trans-unit id="COPY_FROM_CLIENT">
+        <source>Copy from client</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLIENT_SELECTION_CONTINUE">
+        <source>Continue</source>
+        <target/>
+      </trans-unit>
+      <!--End ClientSelection view-->
+      <!--Start DetailUser view-->
+      <trans-unit id="ALERT_DELETE_USER">
+        <source>Do you really delete this user?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POPUP_DELETE_USER">
+        <source>Delete</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SWITCH_USER">
+        <source>Switch user</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DETAIL_USER_EDIT_USER">
+        <source>Edit user</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DETAIL_USER_APLICATION">
+        <source>Aplication</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_USER">
+        <source>Delete user</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOC_PROFILE">
+        <source>Social</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_PROFILE">
+        <source>Health</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_PROFILE">
+        <source>Educational</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_HEALTH_PROFILE">
+        <source>New health profile record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_INFORMATION">
+        <source>Health information:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_SOCIAL_PROFIL">
+        <source>New social profile record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_INFORMATION">
+        <source>Social information:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_EDUCATION_PROFILE">
+        <source>New education profile record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_INFORMATION">
+        <source>Education information:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN_NAME">
+        <source>Login:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ROLE">
+        <source>Role:</source>
+        <target/>
+      </trans-unit>
+      <!--End DetailUser view-->
+      <!--Start EditUser view-->
+      <trans-unit id="EDIT_USER_EDIT_USER">
+        <source>Edit user</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHANGE_PASSWORD">
+        <source>Change password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_NAME">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_SURNAME">
+        <source>Surname</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_NAME_OF_LOGIN">
+        <source>Login</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_REQUIRE_PASSWORD">
+        <source>Require password for login</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_PASSWORD">
+        <source>Change password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_USERS_LEVEL">
+        <source>User's role</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHOICE_CLIENT">
+        <source>Client</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHOICE_ASSISTANT">
+        <source>Assistant</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHOICE_ADMIN">
+        <source>Administrator</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_USERS_ADMIN">
+        <source>User's administrator</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CAN_EXIT_APP">
+        <source>Application exit not require gesture</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CAN_EXIT_FRAMEWORK">
+        <source>Framework exit allowed</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_COPY_PROFILES">
+        <source>Copy profiles from</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_NOT_COPY">
+        <source>(not copy)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_USERS_APPLICATION">
+        <source>User's applications</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_LANGUAGE">
+        <source>Language</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_ENGLISH">
+        <source>English</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CZECH">
+        <source>Czech</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_PHOTO_LABEL">
+        <source>User photo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CAMERA">
+        <source>Camera</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_FROM_DEVICE">
+        <source>From device</source>
+        <target/>
+      </trans-unit>
+      <!--End EditUser view-->
+      <!--Start COMMON Record items view-->
+      <trans-unit id="COMMON_RECORD_SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORD_DELETE">
+        <source>Remove</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ALERT_DELETE_RECORD">
+        <source>Really delete the record?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORD_DATE">
+        <source>Date</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORDS_NEW">
+        <source>New</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORDS_EDIT">
+        <source>Edit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORDS_COPY">
+        <source>Copy</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORDS_LAST_RECORD">
+        <source>Selected record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COMMON_RECORDS_HISTORY">
+        <source>History</source>
+        <target/>
+      </trans-unit>
+      <!--End COMMON Record items view-->
+      <!--Start EducationRecord view-->
+      <trans-unit id="EDUCATION_RECORD_HEAD">
+        <source>Education record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_NEW_RECORD">
+        <source>Editing/new record</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_SPU">
+        <source>SPU (SEN)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_CHARACTERISTIC">
+        <source>Characteristic</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_ACHIEVE_COMPETENCE">
+        <source>Achieve compentence</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_GOALS_COMPETENCE">
+        <source>Goal's compentence</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_METHODS">
+        <source>Methods</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDUCATION_RECORD_THERAPY">
+        <source>Therapy</source>
+        <target/>
+      </trans-unit>
+      <!--End EducationRecord view-->
+      <!--Start EducationRecords view-->
+      <trans-unit id="EDUCATION_RECORDS_NEEDS">
+        <source>Needs</source>
+        <target/>
+      </trans-unit>    
+      <!--End EducationRecords view-->
+      <!--Start HealthRecord view-->
+      <trans-unit id="HEALTH_RECORD_HEAD">
+        <source>Health profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_STATE">
+        <source>Health state</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_ANAMNESIS">
+        <source>Anamnesis</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_SUMMARY">
+        <source>Diagnostic summary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_RECOMMENDATION">
+        <source>Recommendation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_HEALTH_MEASURE">
+        <source>Health measure</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HEALTH_RECORD_END">
+        <source>Summary</source>
+        <target/>
+      </trans-unit>
+      <!--End HealthRecord view-->
+      <!--Start RecordsSelection view-->
+      <trans-unit id="RECORDS_SELECTION_HEAD">
+        <source>Copy records</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RECORDS_SELECTION_CONTINUE">
+        <source>Continue</source>
+        <target/>
+      </trans-unit>
+      <!--End RecordsSelection view-->
+      <!--Start SocialRecord view-->
+      <trans-unit id="SOCIAL_RECORD_HEAD">
+        <source>Social profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_RECORD_RELATIONSHIP">
+        <source>Relations</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_RECORD_SOCIAL_SITUATION">
+        <source>Social situation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_RECORD_ALIMENTATION">
+        <source>Alimentation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_RECORD_HYGIENE">
+        <source>Hygiene</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SOCIAL_RECORD_RISK_SITUATION">
+        <source>Risk situation</source>
+        <target/>
+      </trans-unit>
+      <!--End SocialRecord view-->
+      <!--Start SocialRecords view-->
+      <trans-unit id="SOCIAL_RECORDS_RELATIONSHIP">
+        <source>Relationship</source>
+        <target/>
+      </trans-unit>
+      <!--End SocialRecords view-->
+      <!--Start TargetClientsSelection view-->
+      <trans-unit id="TARGET_CLIENT_SELECTION_HEAD">
+        <source>Where copy?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TARGET_CLIENT_SELECTION_CONTINUE">
+        <source>Continue</source>
+        <target/>
+      </trans-unit>
+      <!--End TargetClientsSelection view-->
+      <!--Start User view-->
+      <trans-unit id="USERS_HEAD">
+        <source>Users</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_ADD">
+        <source>Add</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_ADMINISTRATIONS">
+        <source>Administrations:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_EDIT">
+        <source>Edit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_ASSISTANTS">
+        <source>Assistants:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_CLIENTS">
+        <source>Clients:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USERS_SWITCH_USER">
+        <source>Apps</source>
+        <target/>
+      </trans-unit>
+      <!--End User view-->
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <!--Start Manage application view-->
+      <trans-unit id="MANAGE_APPLICATION_EDIT_APPLICATION">
+        <source>Edit application</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MANAGE_APPLICATION_NAME">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MANAGE_APPLICATION_URL_SCHEME">
+        <source>URL scheme</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MANAGE_APPLICATION_ICON_OF_APPLICATION">
+        <source>Image of application</source>
+        <target/>
+      </trans-unit>
+      <!--End Manage application view-->
+      <!--Start Manage applications view-->
+      <trans-unit id="MANAGE_APPLICATIONS_NAME_OF_VIEW">
+        <source>Manage applications</source>
+        <target/>
+      </trans-unit>
+      <!--End Manage applications view-->
+    </body>
+  </file>
+</xliff>

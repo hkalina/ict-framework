@@ -1,0 +1,27 @@
+<ion-view view-title="Nastavení online katalogu">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-checkmark" ng-click="saveServer()">Uložit</button>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Pojmenování katalogu</span>
+        <input type="text" ng-model="server.name" placeholder="Pojmenování katalogu">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Adresa serveru</span>
+        <input type="text" ng-model="server.url" placeholder="Adresa serveru">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Přihlašovací jméno</span>
+        <input type="text" ng-model="server.username" placeholder="Přihlašovací jméno">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Heslo</span>
+        <input type="password" ng-model="server.password" placeholder="Heslo">
+      </label>
+    </div>
+    
+  </ion-content>
+</ion-view>

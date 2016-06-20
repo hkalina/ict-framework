@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{viewcontrollerBundle.RECORDS_SELECTION_HEAD}"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton action="__back" id="back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton action="next" text="#{viewcontrollerBundle.RECORDS_SELECTION_CONTINUE}"/>
+    </amx:facet>
+    
+    <amx:selectManyCheckbox value="#{CopyBean.recordIdsForCopy}" rendered='#{CopyBean.recordsTypeForCopy == "HEALTH"}'>
+      <amx:selectItems value="#{HealthRecordBean.selectItemsForCopy}" />
+    </amx:selectManyCheckbox>
+    
+    <amx:selectManyCheckbox value="#{CopyBean.recordIdsForCopy}" rendered='#{CopyBean.recordsTypeForCopy == "SOCIAL"}'>
+      <amx:selectItems value="#{SocialRecordBean.selectItemsForCopy}" />
+    </amx:selectManyCheckbox>
+    
+    <amx:selectManyCheckbox value="#{CopyBean.recordIdsForCopy}" rendered='#{CopyBean.recordsTypeForCopy == "EDUCATIONAL"}'>
+      <amx:selectItems value="#{EducationalRecordBean.selectItemsForCopy}" />
+    </amx:selectManyCheckbox>
+    
+  </amx:panelPage>
+</amx:view>

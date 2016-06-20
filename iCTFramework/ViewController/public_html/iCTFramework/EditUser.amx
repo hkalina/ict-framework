@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt" xmlns:ict="http://xmlns.ictframework/ict">
+  <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                  id="lb1"/>
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="#{viewcontrollerBundle.EDIT_USER_EDIT_USER}" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="back" action="__back"/>
+    </amx:facet>
+    
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2" action="__back" text="#{viewcontrollerBundle.EDIT_USER_SAVE}"
+                         actionListener="#{UserBean.saveCurrent}">
+      </amx:commandButton>
+    </amx:facet>
+    <amx:panelFormLayout id="pfl1" fieldHalign="start" labelPosition="start" labelWidth="155">
+    
+      <amx:inputText label="#{viewcontrollerBundle.EDIT_USER_NAME}"
+                     value="#{UserBean.current.name}"/>
+      <amx:inputText label="#{viewcontrollerBundle.EDIT_USER_SURNAME}" value="#{UserBean.current.surname}"/>
+      <amx:inputText label="#{viewcontrollerBundle.EDIT_USER_NAME_OF_LOGIN}" value="#{UserBean.current.login}"/>
+      <amx:panelLabelAndMessage label="#{viewcontrollerBundle.EDIT_USER_PHOTO_LABEL}" id="plam1">
+        <amx:tableLayout id="tl1">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1">
+              <amx:image id="i1" source="#{UserBean.currentImagePath}" styleClass="mgrProfileImage"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf3">
+              <amx:spacer id="s1" width="20"/>
+            </amx:cellFormat>
+            <amx:cellFormat id="cf2">
+              <amx:commandButton text="#{viewcontrollerBundle.EDIT_USER_CAMERA}" id="cb1" actionListener="#{UserBean.getPictureFromDeviceCamera}"/>
+              <amx:commandButton text="#{viewcontrollerBundle.EDIT_USER_FROM_DEVICE}" id="cb3" actionListener="#{UserBean.getPictureFromDeviceAlbum}"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:panelLabelAndMessage>
+      <amx:selectOneChoice label="#{viewcontrollerBundle.EDIT_USER_USERS_LEVEL}" value="#{UserBean.current.levelString}" disabled="#{!LoginBean.logged.isAdmin}">
+        <amx:selectItem label="#{viewcontrollerBundle.EDIT_USER_CHOICE_CLIENT}" value="CLIENT"/>
+        <amx:selectItem label="#{viewcontrollerBundle.EDIT_USER_CHOICE_ASSISTANT}" value="ASSISTANT"/>
+        <amx:selectItem label="#{viewcontrollerBundle.EDIT_USER_CHOICE_ADMIN}" value="ADMIN"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="#{viewcontrollerBundle.EDIT_USER_USERS_ADMIN}" value="#{UserBean.current.managerId}" disabled="#{!LoginBean.logged.isAdmin}">
+        <amx:selectItems value="#{UserBean.managerSelectItems}"/>
+      </amx:selectOneChoice>
+      <amx:selectOneChoice label="#{viewcontrollerBundle.EDIT_USER_LANGUAGE}" id="soc1" value="#{UserBean.current.languageString}">
+        <amx:selectItem id="si1" label="#{viewcontrollerBundle.EDIT_USER_ENGLISH}" value="en"/>
+        <amx:selectItem label="#{viewcontrollerBundle.EDIT_USER_CZECH}" id="si2" value="cs"/>
+      </amx:selectOneChoice>
+      <amx:selectBooleanSwitch label="#{viewcontrollerBundle.EDIT_USER_CAN_EXIT_APP}" value="#{UserBean.current.canEscapeApp}" disabled="#{!ApplicationBean.isInKiosk}"/>
+      <amx:selectBooleanSwitch label="#{viewcontrollerBundle.EDIT_USER_CAN_EXIT_FRAMEWORK}" value="#{UserBean.current.canEscapeFramework}" rendered="#{LoginBean.logged.isAdmin}" disabled="#{!ApplicationBean.isInKiosk}"/>
+      <amx:selectOneChoice label="#{viewcontrollerBundle.EDIT_USER_COPY_PROFILES}" value="#{UserBean.copyFromId}"
+                           rendered="#{UserBean.current.id == 0 &amp;&amp; UserBean.currentIsClient}">
+        <amx:selectItem label="#{viewcontrollerBundle.EDIT_USER_NOT_COPY}" value="0"/>
+        <amx:selectItems value="#{UserBean.clientSelectItems}"/>
+      </amx:selectOneChoice>
+      <amx:selectManyCheckbox label="#{viewcontrollerBundle.EDIT_USER_USERS_APPLICATION}" value="#{UserBean.current.userApplicationsIds}">
+        <amx:selectItems value="#{ApplicationBean.selectItems}"/>
+      </amx:selectManyCheckbox>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

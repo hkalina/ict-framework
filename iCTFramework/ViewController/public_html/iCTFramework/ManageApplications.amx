@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                    id="lb1"/>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{viewcontrollerBundle.MANAGE_APPLICATIONS_NAME_OF_VIEW}" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton text="#{viewcontrollerBundle.USERS_ADD}" inlineStyle="flex-direction:column;"
+                               action="new">
+                <amx:setPropertyListener from="#{ApplicationBean.blank}" to="#{ApplicationBean.current}" type="action"/>
+            </amx:commandButton>
+        </amx:facet>
+        <amx:listView var="row" value="#{ApplicationBean.list}">
+            <amx:listItem action="edit">
+                <amx:outputText value="#{row.name}"/>
+                <amx:setPropertyListener from="#{row}" to="#{ApplicationBean.current}"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>

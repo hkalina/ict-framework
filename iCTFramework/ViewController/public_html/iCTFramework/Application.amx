@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                    id="lb1"/>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{ApplicationBean.current.name}"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="back"/>
+        </amx:facet>
+        <amx:tableLayout id="tl1" halign="center" rendered="#{!LoginBean.logged.isClient}">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat id="cf1" >
+                    <amx:selectBooleanCheckbox value="#{ApplicationBean.isAllowedTimeSet}"
+                                               label="#{viewcontrollerBundle.RESTRICTION_OF_TIME_IN_APPLICATION}"
+                                               styleClass="Deptmetriclabel"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        
+        <amx:inputText value="#{ApplicationBean.allowedTime}" inputType="number" label="#{viewcontrollerBundle.MINUTES}" rendered="#{ApplicationBean.isAllowedTimeSet}"/>
+        
+        <amx:inputNumberSlider minimum="1" maximum="120"
+                               value="#{ApplicationBean.allowedTime}" stepSize="1"
+                               rendered="#{ApplicationBean.isAllowedTimeSet}"/>
+        
+        <amx:goLink url="#{ApplicationBean.linkUrl}"
+                    inlineStyle="color:White; background-color:#0572ce; width:80%; margin:2em auto; text-align:center; flex-item-align:center; text-decoration:none solid currentColor; font-size:x-large; padding:20px;"
+                    text="#{ApplicationBean.current.name}"/>
+        
+        <amx:goLink url="#{ApplicationBean.manageLinkUrl}"
+                    inlineStyle="color:White; background-color:#0572ce; width:80%; margin:2em auto; text-align:center; flex-item-align:center; text-decoration:none solid currentColor; font-size:x-large; padding:20px;"
+                    text="#{viewcontrollerBundle.APLICATION_MANAGE}" rendered="#{!LoginBean.logged.isClient}"/>
+        
+    </amx:panelPage>
+</amx:view>

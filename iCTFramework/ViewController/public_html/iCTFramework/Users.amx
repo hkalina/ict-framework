@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:amx="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"
+                    id="lb1"/>
+    <amx:panelPage id="pp1">
+		<amx:facet name="header">
+			<amx:outputText value="#{viewcontrollerBundle.USERS_HEAD}" id="ot1" />
+		</amx:facet>
+		<amx:facet name="primary">
+			<amx:commandButton action="__back" id="back"/>
+		</amx:facet>
+		<amx:facet name="secondary">
+			<amx:commandButton text="#{viewcontrollerBundle.USERS_ADD}" inlineStyle="flex-direction:column;" action="newUser">
+				<amx:setPropertyListener from="#{UserBean.blank}" to="#{UserBean.current}" type="action" />
+			</amx:commandButton>
+                        <amx:commandButton action="exit" rendered="#{LoginBean.logged.canEscapeFramework &amp;&amp; ApplicationBean.isInKiosk}"
+                               text="#{viewcontrollerBundle.EXIT}"
+                               actionListener="#{LoginBean.escapeFramework()}"/>
+		</amx:facet>
+
+		<amx:outputText value="#{viewcontrollerBundle.USERS_ADMINISTRATIONS}" inlineStyle="flex-item-align:start; margin-top:15px; flex-direction:column;" rendered="#{UserBean.adminsNotEmpty}" />
+                
+                <amx:listView var="row" value="#{UserBean.adminsList}" 
+                          showMoreStrategy="autoScroll"
+                          bufferStrategy="additive" id="lv1">
+                    <amx:listItem id="li1" showLinkIcon="false" action="detailUser" shortDesc="Directory List Item">
+                        <amx:accessoryLayout id="al1" startDesc="Show starting tools" startStyle="revealWhite"
+                                             endDesc="Show ending tools" endStyle="revealBlue">
+                            <amx:facet name="start">
+                                <amx:commandLink text="#{viewcontrollerBundle.USERS_EDIT}" id="cl2" action="editUserQuick" rendered="#{row.editableByLogged}">
+                                    <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                                    <amx:image styleClass="contactListIcon revealIcon" source="/images/pencil01_func.svg"/>
+                                </amx:commandLink>
+                            </amx:facet>
+                            <amx:tableLayout width="100%" id="tl1" inlineStyle="margin-right:0;" shortDesc="table">
+                                <amx:rowLayout>
+                                    <amx:cellFormat width="78" halign="center" rowSpan="3" id="cf3" height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell">
+                                        <amx:image source="#{row.imagePath}" id="i1" styleClass="tabletListImage"/>
+                                    </amx:cellFormat>
+                                    <amx:cellFormat width="10" halign="center" rowSpan="3" id="cf14" height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell"></amx:cellFormat>
+                                    <amx:cellFormat width="100%" height="27" id="cf6" shortDesc="Cell" valign="bottom">
+                                        <amx:outputText value="#{row.fullname}" id="ot2"
+                                                        inlineStyle="font-weight:bold;"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                                <amx:rowLayout id="rl1">
+                                    <amx:cellFormat height="31" shortDesc="Cell">
+                                        <amx:outputText value="#{row.levelLocalizedString} #{row.login}" id="ot5"
+                                                        styleClass="adfmf-listItem-captionText"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                        </amx:accessoryLayout>
+                        <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                        <amx:setPropertyListener from="#{row}" to="#{SocialRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{EducationalRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{HealthRecordBean.currentUser}" />
+                        
+                    </amx:listItem>
+                </amx:listView>
+
+		<amx:outputText value="#{viewcontrollerBundle.USERS_ASSISTANTS}" inlineStyle="flex-item-align:start; margin-top:15px; flex-direction:column;" rendered="#{UserBean.assistantsNotEmpty}" />
+                <amx:listView var="row" value="#{UserBean.assistantsList}" 
+                          showMoreStrategy="autoScroll"
+                          bufferStrategy="additive" >
+                    <amx:listItem  showLinkIcon="false" action="detailUser" shortDesc="Directory List Item">
+                        <amx:accessoryLayout  startDesc="Show starting tools" startStyle="revealWhite"
+                                             endDesc="Show ending tools" endStyle="revealBlue">
+                            <amx:facet name="start">
+                                <amx:commandLink text="#{viewcontrollerBundle.USERS_EDIT}" action="editUserQuick" rendered="#{row.editableByLogged}">
+                                    <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                                    <amx:image styleClass="contactListIcon revealIcon" source="/images/pencil01_func.svg"/>
+                                </amx:commandLink>
+                            </amx:facet>
+                            <amx:tableLayout width="100%" inlineStyle="margin-right:0;" shortDesc="table">
+                                <amx:rowLayout>
+                                    <amx:cellFormat width="78" halign="center" rowSpan="3"  height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell">
+                                        <amx:image source="#{row.imagePath}"  styleClass="tabletListImage"/>
+                                    </amx:cellFormat>
+                                    <amx:cellFormat width="10" halign="center" rowSpan="3" height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell"></amx:cellFormat>
+                                    <amx:cellFormat width="100%" height="27"  shortDesc="Cell" valign="bottom">
+                                        <amx:outputText value="#{row.fullname}" 
+                                                        inlineStyle="font-weight:bold;"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                                <amx:rowLayout >
+                                    <amx:cellFormat height="31" shortDesc="Cell">
+                                        <amx:outputText value="#{row.levelLocalizedString} #{row.login}" 
+                                                        styleClass="adfmf-listItem-captionText"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                        </amx:accessoryLayout>
+                        <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                        <amx:setPropertyListener from="#{row}" to="#{SocialRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{EducationalRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{HealthRecordBean.currentUser}" />
+                    </amx:listItem>
+                </amx:listView>
+
+                
+		<amx:outputText value="#{viewcontrollerBundle.USERS_CLIENTS}" inlineStyle="flex-item-align:start; margin-top:15px; flex-direction:column;" rendered="#{UserBean.clientsNotEmpty}" />
+                <amx:listView var="row" value="#{UserBean.clientsList}" 
+                          showMoreStrategy="autoScroll"
+                          bufferStrategy="additive" >
+                    <amx:listItem  showLinkIcon="false" action="detailUser" shortDesc="Directory List Item">
+                        <amx:accessoryLayout  startDesc="Show starting tools" startStyle="revealWhite"
+                                             endDesc="Show ending tools" endStyle="revealBlue">
+                            <amx:facet name="start">
+                                <amx:commandLink text="#{viewcontrollerBundle.USERS_SWITCH_USER}"  action="logInAsClientQuick">
+                                   <amx:setPropertyListener from="#{row}" to="#{UserBean.current}"/>
+                                   <amx:image styleClass="contactListIcon revealIcon"
+                                               source="/images/account-switch.svg" shortDesc="Switch users image"/>
+                                </amx:commandLink>
+                                <amx:commandLink text="#{viewcontrollerBundle.USERS_EDIT}" action="editUserQuick" rendered="#{row.editableByLogged}">
+                                    <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                                    <amx:image styleClass="contactListIcon revealIcon" source="/images/pencil01_func.svg"/>
+                                </amx:commandLink>
+                            </amx:facet>
+                            <amx:tableLayout width="100%" inlineStyle="margin-right:0;" shortDesc="table">
+                                <amx:rowLayout>
+                                    <amx:cellFormat width="78" halign="center" rowSpan="3"  height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell">
+                                        <amx:image source="#{row.imagePath}"  styleClass="tabletListImage"/>
+                                    </amx:cellFormat>
+                                    <amx:cellFormat width="10" halign="center" rowSpan="3" height="74"
+                                                    rendered="#{deviceScope.hardware.screen.availableWidth gt 320}"
+                                                    shortDesc="cell"></amx:cellFormat>
+                                    <amx:cellFormat width="100%" height="27"  shortDesc="Cell" valign="bottom">
+                                        <amx:outputText value="#{row.fullname}" 
+                                                        inlineStyle="font-weight:bold;"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                                <amx:rowLayout >
+                                    <amx:cellFormat height="31" shortDesc="Cell">
+                                        <amx:outputText value="#{row.levelLocalizedString} #{row.login}" 
+                                                        styleClass="adfmf-listItem-captionText"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                        </amx:accessoryLayout>
+                        <amx:setPropertyListener from="#{row}" to="#{UserBean.current}" />
+                        <amx:setPropertyListener from="educational" to="#{pageFlowScope.summaryProfilView}" />
+                        <amx:setPropertyListener from="#{row}" to="#{SocialRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{EducationalRecordBean.currentUser}" />
+                        <amx:setPropertyListener from="#{row}" to="#{HealthRecordBean.currentUser}" />
+                    </amx:listItem>
+                </amx:listView>
+ 
+	</amx:panelPage>
+</amx:view>

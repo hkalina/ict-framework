@@ -1,0 +1,37 @@
+<ion-view class="playing" view-title="Přehrávání">
+  <ion-content scroll="false">
+    <ion-slides options="slidesOptions" slider="data.slider">
+      <ion-slide-page class="backSlide">
+        
+        <h1>Aplikace pro AAK typu ANO/NE</h1>
+        <p>Pro přesun mezi páry seznamu táhněte prstem po ploše obrazovky doprava nebo doleva.</p>
+        <p>Pro opuštění přehrávání seznamu párů použijte tlačítko níže nebo hardwarové tlačítko Zpět.</p>
+        
+        <button class="backButton" ng-click="onBackButton()">Opustit přehrávání</button>
+        
+      </ion-slide-page>
+      <ion-slide-page ng-repeat="pair in pairs">
+        
+        <div class="options">
+          
+          <div class="option" ng-if="pair.left" style="background-color: {{pair.left.color}}" ng-click="playAudio(pair.left)">
+            <div class="innerOption">
+              <img class="optionImage" src="{{pair.left.image}}"/><!-- style="max-height: {{slideImageHeight}}px" -->
+              <div class="optionText" style="color: {{textColorByBackground(pair.left.color)}}">{{pair.left.text?pair.left.text:pair.left.name}}</div>
+            </div>
+          </div>
+          <div class="option" ng-if="!pair.left"></div>
+          
+          <div class="option" ng-if="pair.right" style="background-color: {{pair.right.color}}" ng-click="playAudio(pair.right)">
+            <div class="innerOption">
+              <img class="optionImage" src="{{pair.right.image}}"/><!-- style="max-height: {{slideImageHeight}}px" -->
+              <div class="optionText" style="color: {{textColorByBackground(pair.right.color)}}">{{pair.right.text?pair.right.text:pair.right.name}}</div>
+            </div>
+          </div>
+          <div class="option" ng-if="!pair.right"></div>
+          
+        </div>
+      </ion-slide-page>
+    </ion-slides>
+  </ion-content>
+</ion-view>

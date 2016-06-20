@@ -1,0 +1,14 @@
+<ion-view view-title="Online katalog seznamů párů">
+  <ion-content>
+    
+    <ion-list click-for-options-wrapper>
+      <ion-item click-for-options ng-repeat="option in optionsFiltered" class="item-thumbnail-left">
+        <h2>{{option.name}}</h2>
+        <p>{{option.text}}</p>
+        <ion-option-button class="button-calm" ng-click="copyList(option)">Kopírovat</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="removeList(option)">Odstranit</ion-option-button>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

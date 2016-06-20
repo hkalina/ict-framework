@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:loadBundle basename="maf.isenframework.isenframeworkview.ViewControllerBundle" var="viewcontrollerBundle"/>
+    <amx:popup id="deletePopup" inlineStyle="width:100%;">
+        <amx:tableLayout halign="center" inlineStyle="width:100%;">
+            <amx:rowLayout>
+                <amx:cellFormat>
+                    <amx:outputText value="#{viewcontrollerBundle.ALERT_DELETE_USER}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout>
+                <amx:cellFormat halign="center">
+                    <amx:commandButton text="#{viewcontrollerBundle.CANCEL}">
+                        <amx:closePopupBehavior popupId="deletePopup"/>
+                    </amx:commandButton>
+                    <amx:commandButton action="__back" text="#{viewcontrollerBundle.POPUP_DELETE_USER}" actionListener="#{UserBean.onDeleteButtonClicked}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:popup>
+
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="#{UserBean.current.name} #{UserBean.current.surname}"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton action="__back" id="back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton text="#{viewcontrollerBundle.DETAIL_USER_APLICATION}" action="logInAsClient"/>
+        </amx:facet>
+        <amx:panelStretchLayout>
+            <amx:facet name="top">
+                <amx:tableLayout inlineStyle="margin-left:5px;" halign="end">
+                    <amx:rowLayout>
+                        <amx:cellFormat inlineStyle="flex-order:2; flex-pack:end; flex:none;" halign="end">
+                            <amx:commandButton action="changePassword" text="#{viewcontrollerBundle.EDIT_USER_CHANGE_PASSWORD}"/>
+                            <amx:commandButton action="editUser" text="#{viewcontrollerBundle.DETAIL_USER_EDIT_USER}"
+                                               rendered="#{UserBean.current.editableByLogged}"/>
+                            <amx:commandButton text="#{viewcontrollerBundle.DELETE_USER}"
+                                               rendered="#{UserBean.current.editableByLogged}">
+                                <amx:showPopupBehavior popupId="deletePopup" alignId="pp1" align="bottomCenter"/>
+                            </amx:commandButton>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout width="100%">
+                    <amx:rowLayout>
+                        <amx:cellFormat rowSpan="3" width="10" shortDesc="cell"/>
+                        <amx:cellFormat width="70px" halign="center" rowSpan="3"
+                                        height="44px" inlineStyle="margin-right:0px;">
+                            <amx:image source="#{UserBean.current.imagePath}" styleClass="tabletProfileImage"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="38%" height="38px" valign="bottom">
+                            <amx:outputText value="#{UserBean.current.fullname}" inlineStyle="margin:0;font-size:22px"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat rowSpan="3" width="20" shortDesc="cell"/>
+                    </amx:rowLayout>
+                    <amx:rowLayout>
+                        <amx:cellFormat height="32px">
+                            <amx:outputText value="#{viewcontrollerBundle.LOGIN_NAME} #{UserBean.current.login}" inlineStyle="margin:0;font-size:18px;color:#595960;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout>
+                        <amx:cellFormat height="38px" valign="top">
+                            <amx:outputText value="#{viewcontrollerBundle.ROLE} #{UserBean.current.levelLocalizedString}" inlineStyle="margin:0;font-size:18px;color:#595960;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:panelGroupLayout inlineStyle="width:100%;height:43px">
+                    <amx:selectOneButton simple="true" value="#{pageFlowScope.summaryProfilView}"
+                                         styleClass="#{deviceScope.device.os eq 'Android' ? 'adfmf-selectOneButton-tabStyle' : ''} profileSelector"
+                                         rendered="#{UserBean.current.isClient}">
+                        <amx:selectItem label="#{viewcontrollerBundle.EDUCATION_PROFILE}" value="educational" />
+                        <amx:selectItem label="#{viewcontrollerBundle.SOC_PROFILE}" value="social"/>
+                        <amx:selectItem label="#{viewcontrollerBundle.HEALTH_PROFILE}" value="health"/>
+                    </amx:selectOneButton>
+                </amx:panelGroupLayout>
+                <amx:tableLayout inlineStyle="margin-left:5px; margin-top:20px;" rendered="#{UserBean.current.isClient}">
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'health' ? 'true' : 'false'}">
+                        <amx:cellFormat inlineStyle="margin-left:100px;">
+                            <amx:commandButton text="#{viewcontrollerBundle.NEW_HEALTH_PROFILE}" action="newHealth" inlineStyle="margin-left:1px;">
+                                <amx:setPropertyListener from="#{HealthRecordBean.blank}" to="#{HealthRecordBean.current}"/>
+                            </amx:commandButton>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'health' ? 'true' : 'false'}">
+                        <amx:cellFormat inlineStyle="height:auto; margin-left:0px;">
+                            <amx:outputText value="#{viewcontrollerBundle.HEALTH_INFORMATION}" inlineStyle="padding-left:0px; margin-left:10px; margin-bottom:10px;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'health' ? 'true' : 'false'}">
+                        <amx:cellFormat inlineStyle="margin-left:10px; margin-top:10px;">
+                            <amx:listView var="healthRow" showMoreStrategy="autoScroll" bufferStrategy="viewport" value="#{HealthRecordBean.currentUserRecords}">
+                                <amx:listItem action="healthRecords" >
+                                    <amx:setPropertyListener from="#{healthRow}" to="#{HealthRecordBean.current}" />
+                                    <amx:tableLayout width="100%">
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="10px" rowSpan="2"/>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px">
+                                                <amx:tableLayout>
+                                                    <amx:rowLayout>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{healthRow.date}">
+                                                                <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                                                            </amx:outputText>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:spacer width="10"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{healthRow.status}"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px">
+                                                <amx:outputText value="#{healthRow.anamnesis}" styleClass="adfmf-listItem-captionText"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:listItem>
+                            </amx:listView>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'social' ? 'true' : 'false'}">
+                        <amx:cellFormat>
+                            <amx:commandButton text="#{viewcontrollerBundle.NEW_SOCIAL_PROFIL}" action="newSocial" inlineStyle="margin-left:1px;">
+                                <amx:setPropertyListener from="#{SocialRecordBean.blank}" to="#{SocialRecordBean.current}"/>
+                            </amx:commandButton>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'social' ? 'true' : 'false'}">
+                        <amx:cellFormat>
+                            <amx:outputText value="#{viewcontrollerBundle.SOCIAL_INFORMATION}" inlineStyle="margin-left:10px;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'social' ? 'true' : 'false'}">
+                        <amx:cellFormat inlineStyle="margin:0px 0px 0px;">
+                            <amx:listView var="socialRow" showMoreStrategy="autoScroll" bufferStrategy="viewport" value="#{SocialRecordBean.currentUserRecords}">
+                                <amx:listItem action="socialRecords">
+                                    <amx:setPropertyListener from="#{socialRow}" to="#{SocialRecordBean.current}" />
+                                    <amx:tableLayout width="100%">
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="10px" rowSpan="2"/>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px">
+                                                <amx:tableLayout>
+                                                    <amx:rowLayout>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{socialRow.date}">
+                                                                <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                                                            </amx:outputText>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:spacer width="10"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{socialRow.relationships}"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px">
+                                                <amx:outputText value="#{socialRow.eating}" styleClass="adfmf-listItem-captionText"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:listItem>
+                            </amx:listView>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'educational' ? 'true' : 'false'}">
+                        <amx:cellFormat>
+                            <amx:commandButton text="#{viewcontrollerBundle.NEW_EDUCATION_PROFILE}" action="newEducational" inlineStyle="margin-left:1px;">
+                        <amx:setPropertyListener from="#{EducationalRecordBean.blank}" to="#{EducationalRecordBean.current}"/>
+                    </amx:commandButton>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'educational' ? 'true' : 'false'}">
+                        <amx:cellFormat>
+                            <amx:outputText value="#{viewcontrollerBundle.EDUCATION_INFORMATION}" inlineStyle="margin-left:10px; margin-bottom:5px;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout rendered="#{pageFlowScope.summaryProfilView eq 'educational' ? 'true' : 'false'}">
+                        <amx:cellFormat>
+                            <amx:listView var="eduRow" showMoreStrategy="autoScroll" bufferStrategy="viewport" value="#{EducationalRecordBean.currentUserRecords}">
+                                <amx:listItem action="educationalRecords">
+                                    <amx:setPropertyListener from="#{eduRow}" to="#{EducationalRecordBean.current}" />
+                                    <amx:tableLayout width="100%">
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="10px" rowSpan="2"/>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'36':'32'}px">
+                                                <amx:tableLayout>
+                                                    <amx:rowLayout>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{eduRow.date}">
+                                                                <amx:convertDateTime timeStyle="short" pattern="d.M.yyyy"/>
+                                                            </amx:outputText>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:spacer width="10"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat>
+                                                            <amx:outputText value="#{eduRow.needs}"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                        <amx:rowLayout>
+                                            <amx:cellFormat width="100%" height="#{deviceScope.device.os=='Android'?'22':'19'}px">
+                                                <amx:outputText value="#{eduRow.targetCompetences}" styleClass="adfmf-listItem-captionText"/>
+                                            </amx:cellFormat>
+                                        </amx:rowLayout>
+                                    </amx:tableLayout>
+                                </amx:listItem>
+                            </amx:listView>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+            </amx:facet>
+        </amx:panelStretchLayout>
+    </amx:panelPage>
+</amx:view>

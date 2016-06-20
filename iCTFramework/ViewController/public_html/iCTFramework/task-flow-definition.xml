@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.oracle.com/adf/controller http://xmlns.oracle.com/adf/controller/adfc-mobile-config.xsd">
+    <task-flow-definition id="task-flow-definition">
+        <default-activity>LogIn</default-activity>
+        <view id="Applications">
+            <page>/iCTFramework/Applications.amx</page>
+        </view>
+        <view id="LogIn">
+            <page>/iCTFramework/LogIn.amx</page>
+        </view>
+        <view id="Users">
+            <page>/iCTFramework/Users.amx</page>
+        </view>
+        <view id="DetailUser">
+            <page>/iCTFramework/DetailUser.amx</page>
+        </view>
+        <view id="EditUser">
+            <page>/iCTFramework/EditUser.amx</page>
+        </view>
+        <view id="HealthRecord">
+            <page>/iCTFramework/HealthRecord.amx</page>
+        </view>
+        <view id="EducationalRecord">
+            <page>/iCTFramework/EducationalRecord.amx</page>
+        </view>
+        <view id="SocialRecord">
+            <page>/iCTFramework/SocialRecord.amx</page>
+        </view>
+        <view id="HealthRecords">
+            <page>/iCTFramework/HealthRecords.amx</page>
+        </view>
+        <view id="EducationalRecords">
+            <page>/iCTFramework/EducationalRecords.amx</page>
+        </view>
+        <view id="SocialRecords">
+            <page>/iCTFramework/SocialRecords.amx</page>
+        </view>
+        <view id="Application">
+            <page>/iCTFramework/Application.amx</page>
+        </view>
+        <view id="ChangePassword">
+            <page>/iCTFramework/ChangePassword.amx</page>
+        </view>
+        <task-flow-call id="CopyTaskFlow">
+            <task-flow-reference>
+                <document>/iCTFramework/copy-task-flow-definition.xml</document>
+                <id>copy-task-flow-definition</id>
+            </task-flow-reference>
+            <data-control-context>shared</data-control-context>
+        </task-flow-call>
+        <view id="ManageApplications">
+            <page>/iCTFramework/ManageApplications.amx</page>
+        </view>
+        <view id="ManageApplication">
+            <page>/iCTFramework/ManageApplication.amx</page>
+        </view>
+        <control-flow-rule>
+            <from-activity-id>Applications</from-activity-id>
+            <control-flow-case id="__7">
+                <from-outcome>show</from-outcome>
+                <to-activity-id>Application</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__8">
+                <from-outcome>manage</from-outcome>
+                <to-activity-id>ManageApplications</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule>
+            <from-activity-id>Users</from-activity-id>
+            <control-flow-case>
+                <from-outcome>detailUser</from-outcome>
+                <to-activity-id>DetailUser</to-activity-id>
+            </control-flow-case>
+            <control-flow-case>
+                <from-outcome>newUser</from-outcome>
+                <to-activity-id>EditUser</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__15">
+                <from-outcome>logInAsClientQuick</from-outcome>
+                <to-activity-id>Applications</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__16">
+                <from-outcome>editUserQuick</from-outcome>
+                <to-activity-id>EditUser</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule>
+            <from-activity-id>DetailUser</from-activity-id>
+            <control-flow-case>
+                <from-outcome>logInAsClient</from-outcome>
+                <to-activity-id>Applications</to-activity-id>
+            </control-flow-case>
+            <control-flow-case>
+                <from-outcome>editUser</from-outcome>
+                <to-activity-id>EditUser</to-activity-id>
+            </control-flow-case>
+            <control-flow-case>
+                <from-outcome>healthRecords</from-outcome>
+                <to-activity-id>HealthRecords</to-activity-id>
+            </control-flow-case>
+            <control-flow-case>
+                <from-outcome>educationalRecords</from-outcome>
+                <to-activity-id>EducationalRecords</to-activity-id>
+            </control-flow-case>
+            <control-flow-case>
+                <from-outcome>socialRecords</from-outcome>
+                <to-activity-id>SocialRecords</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__1">
+                <from-outcome>newSocial</from-outcome>
+                <to-activity-id>SocialRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__2">
+                <from-outcome>newEducational</from-outcome>
+                <to-activity-id>EducationalRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__3">
+                <from-outcome>newHealth</from-outcome>
+                <to-activity-id>HealthRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__12">
+                <from-outcome>changePassword</from-outcome>
+                <to-activity-id>ChangePassword</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule>
+            <from-activity-id>HealthRecords</from-activity-id>
+            <control-flow-case>
+                <from-outcome>edit</from-outcome>
+                <to-activity-id>HealthRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__4">
+                <from-outcome>copy</from-outcome>
+                <to-activity-id>CopyTaskFlow</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule>
+            <from-activity-id>EducationalRecords</from-activity-id>
+            <control-flow-case>
+                <from-outcome>edit</from-outcome>
+                <to-activity-id>EducationalRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__11">
+                <from-outcome>copy</from-outcome>
+                <to-activity-id>CopyTaskFlow</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule>
+            <from-activity-id>SocialRecords</from-activity-id>
+            <control-flow-case>
+                <from-outcome>edit</from-outcome>
+                <to-activity-id>SocialRecord</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__10">
+                <from-outcome>copy</from-outcome>
+                <to-activity-id>CopyTaskFlow</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__5">
+            <from-activity-id>LogIn</from-activity-id>
+            <control-flow-case id="__6">
+                <from-outcome>clientLogin</from-outcome>
+                <to-activity-id>Applications</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__13">
+                <from-outcome>assistantLogin</from-outcome>
+                <to-activity-id>Users</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__9">
+            <from-activity-id>ManageApplications</from-activity-id>
+            <control-flow-case id="__14">
+                <from-outcome>new</from-outcome>
+                <to-activity-id>ManageApplication</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__17">
+                <from-outcome>edit</from-outcome>
+                <to-activity-id>ManageApplication</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+    </task-flow-definition>
+</adfc-mobile-config>

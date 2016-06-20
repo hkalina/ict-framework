@@ -1,0 +1,3 @@
+[submodule "YesNoApp/www/lib/persistence"]
+	path = YesNoApp/www/lib/persistence
+	url = https://github.com/coresmart/persistencejs

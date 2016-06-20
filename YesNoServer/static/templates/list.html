@@ -1,0 +1,10 @@
+
+<table>
+  <tr ng-repeat="pair in pairs">
+    <td><h4 ng-if="pair.left" title="{{pair.left.id}}">{{pair.left.name}}</h4></td>
+    <td><img class="media-object" src="/download/{{pair.left.image}}" alt="(Obrázek)" ng-if="pair.left && pair.left.image" style="border: 5px solid {{pair.left.color}}"></td>
+    <td><img class="media-object" src="/download/{{pair.right.image}}" alt="(Obrázek)" ng-if="pair.right && pair.right.image" style="border: 5px solid {{pair.right.color}}"></td>
+    <td><h4 ng-if="pair.right" title="{{pair.right.id}}">{{pair.right.name}}</h4></td>
+  </tr>
+</table>
+

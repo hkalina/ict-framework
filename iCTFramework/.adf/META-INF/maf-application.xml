@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="iCTFramework" id="ict.framework"
+                   appControllerFolder="ApplicationController"
+                   listener-class="maf.isenframework.isenframeworkapplication.LifeCycleListenerImpl"
+                   urlScheme="ictframework">
+  <adfmf:featureReference refId="iCTFramework" id="fr1"/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:configuration>
+    <adfmf:allowedSchemeList>
+      <adfmf:allowedScheme value="yesno"/><adfmf:allowedScheme value="yesnokiosk"/>
+      <adfmf:allowedScheme value="test"/><adfmf:allowedScheme value="testkiosk"/>
+      <adfmf:allowedScheme value="app1"/><adfmf:allowedScheme value="app1kiosk"/>
+      <adfmf:allowedScheme value="app2"/><adfmf:allowedScheme value="app2kiosk"/>
+      <adfmf:allowedScheme value="app3"/><adfmf:allowedScheme value="app3kiosk"/>
+      <adfmf:allowedScheme value="app4"/><adfmf:allowedScheme value="app4kiosk"/>
+      <adfmf:allowedScheme value="app5"/><adfmf:allowedScheme value="app5kiosk"/>
+    </adfmf:allowedSchemeList>
+  </adfmf:configuration>
+</adfmf:application>

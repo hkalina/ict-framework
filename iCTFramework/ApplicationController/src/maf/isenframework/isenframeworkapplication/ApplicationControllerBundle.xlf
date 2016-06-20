@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="maf.isenframework.isenframeworkapplication.ApplicationControllerBundle"
+        datatype="x-oracle-adf">
+    <body>
+      <!--Start logIn-->
+      <trans-unit id="LOGIN_WELCOME">
+        <source>Welcome</source>
+        <target/>
+        <note>first welcome </note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_NAME">
+        <source>Unknown login!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_NO_PASSWORD">
+        <source>No password or gesture filled!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_PASSWORD">
+        <source>Wrong password!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_GESTURE">
+        <source>Wrong gesture!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <!--End LogIn-->
+      <!--Start DetailUser-->
+      <trans-unit id="DETAIL_USER_ALERT_DELETE_USER">
+        <source>Do you really delete this user</source>
+        <target/>
+      </trans-unit>
+      <!--End DetailUser-->
+      <trans-unit id="EDIT_USER_CHOICE_CLIENT">
+        <source>Client</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHOICE_ASSISTANT">
+        <source>Assistant</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_USER_CHOICE_ADMIN">
+        <source>Administrator</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="USER_NO_NAME">
+        <source>(no name)</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,36 @@
+<ion-view view-title="Úprava seznamu">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-plus" ng-click="addListItem()">Přidat pár</button>
+    <button class="button button-icon ion-plus" ui-sref="app.listedit({ listId: list.id })">Vlastnosti</button>
+    <button class="button button-icon ion-plus" ui-sref="playing({ listId: list.id })">Náhled</button>
+  </ion-nav-buttons>
+  <ion-content>
+    
+    <ion-list>
+      <ion-item ng-repeat="pair in pairs" class="item listedit">
+        
+        <div class="row">
+          <a class="col col-50 option" ui-sref="app.selectoption({ type: 'private', destination: 'pair', id: pair.id, side: 'left' })">
+            <img src="{{pair.left.image}}" class="optionImage" ng-if="pair.left" />
+            <h2 ng-if="pair.left">{{pair.left.name}}</h2>
+            <p ng-if="pair.left">{{pair.left.text}}</p>
+            <h2 ng-if="!pair.left">Klikněte pro výběr karty...</h2>
+          </a>
+          <a class="col col-50 option" ui-sref="app.selectoption({ type: 'private', destination: 'pair', id: pair.id, side: 'right' })">
+            <img src="{{pair.right.image}}" class="optionImage" ng-if="pair.right" />
+            <h2 ng-if="pair.right">{{pair.right.name}}</h2>
+            <p ng-if="pair.right">{{pair.right.text}}</p>
+            <h2 ng-if="!pair.right">Klikněte pro výběr karty...</h2>
+          </a>
+        </div>
+        
+        <ion-option-button class="button-assertive" ng-click="removePair(pair)">Odstranit</ion-option-button>
+      </ion-item>
+      
+      <ion-item ng-if="!pairs.length">
+        Přidejte do seznamu páry tlačíkem výše...
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>
