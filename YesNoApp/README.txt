@@ -16,6 +16,11 @@ Troubleshooting:
     sudo npm -g install ios-deploy --unsafe-perm=true
   Module 'ionic.service.core' is not available!
     ionic config build
+  Code Sign error: No matching provisioning profiles found
+    Open generated project using XCode: platforms/ios/YesNoApp.xcodeproj
+    Change Bundle identifier to something own (not already registered)
+    Press “Fix issue” after “No matching provisioning profile found”
+    Deploy using “Play” button
 
 IPA obtaining
 *************
