@@ -471,7 +471,39 @@
         <target/>
       </trans-unit>
       <!--End Manage applications view-->
-      
+      <trans-unit id="MANIFEST">
+        <source><![CDATA[
+        <p align="center">Aplikace vznikla v rámci neformálního projektu <b>počítačové terapie</b> na <b>FIT VUT v Brně</b> za podpory společnosti <b>Red Hat</b>.</p>
+        ]]></source>
+        <target/>
+      </trans-unit>
+      <!--Start logIn-->
+      <trans-unit id="LOGIN_WELCOME">
+        <source>Vítejte!</source>
+        <target/>
+        <note>first welcome </note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_NAME">
+        <source>Neznámé uživatelské jméno!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_NO_PASSWORD">
+        <source>Nebylo zadáno gesto ani heslo!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_PASSWORD">
+        <source>Chybně zadané heslo!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_GESTURE">
+        <source>Chybně zadané gesto!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <!--End LogIn-->
     </body>
   </file>
 </xliff>

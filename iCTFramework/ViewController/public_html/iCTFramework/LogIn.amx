@@ -7,8 +7,14 @@
         <amx:facet name="header">
             <amx:outputText value="#{viewcontrollerBundle.LOG_IN}" inlineStyle="text-align:center;"/>
         </amx:facet>
-        <amx:outputText value="#{LoginBean.formMessage}"
-                        inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"/>
+        <amx:outputText inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"
+                        rendered="#{LoginBean.formMessage==0}" value="#{viewcontrollerBundle.LOGIN_WELCOME}"/>
+        <amx:outputText inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"
+                        rendered="#{LoginBean.formMessage==1}" value="#{viewcontrollerBundle.LOGIN_FAILED_USER_NAME}"/>
+        <amx:outputText inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"
+                        rendered="#{LoginBean.formMessage==2}" value="#{viewcontrollerBundle.LOGIN_FAILED_USER_PASSWORD}"/>
+        <amx:outputText inlineStyle="font-size:x-large; text-align:center; margin-bottom:15px; margin-top:5px;"
+                        rendered="#{LoginBean.formMessage==3}" value="#{viewcontrollerBundle.LOGIN_FAILED_USER_GESTURE}"/>
         <amx:inputText label="#{viewcontrollerBundle.User_name}" autoCorrect="off"
                        value="#{LoginBean.formLogin}" hintText="#{viewcontrollerBundle.Hint_user_name}"/>
         <amx:inputText label="#{viewcontrollerBundle.PASSWORD}" secret="true"
@@ -33,11 +39,6 @@
             </amx:rowLayout>
         </amx:tableLayout>
         
-        <amx:verbatim>
-        <![CDATA[
-            <p align="center">Aplikace vznikla v rámci neformálního projektu <b>počítačové terapie</b> na <b>FIT VUT v Brně</b> za podpory společnosti <b>Red Hat</b>.</p>
-        ]]>
-        </amx:verbatim>
-        
+        <amx:outputHtml value="#{viewcontrollerBundle.MANIFEST}"/>
     </amx:panelPage>
 </amx:view>

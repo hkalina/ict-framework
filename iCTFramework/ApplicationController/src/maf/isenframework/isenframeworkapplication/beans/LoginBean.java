@@ -29,7 +29,7 @@ public class LoginBean {
     private String formLogin = "admin";
     private String formPassword = "";
     private String formGesture = "";
-    private String formMessage = "";
+    private int formMessage = 0;
     private String defaultLanguage;
     private User logged;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -38,12 +38,6 @@ public class LoginBean {
     public LoginBean() {
         dao = new UserDao(new RecordDao<EducationalRecord>(EducationalRecord.class), null, null, null);
         
-        //set welcome label in application
-        ResourceBundle bundle = BundleFactory.getBundle("maf.isenframework.isenframeworkapplication.ApplicationControllerBundle");
-        String message = Utility.getResourceString(bundle, "LOGIN_WELCOME", null);
-        setFormMessage(message);
-        
-       
         String defaultLang = Locale.getDefault().toString();
         if(defaultLang.length() > 2){
             //get default language of application, for us is very important fisrt 2 character, then we can change language of application
@@ -64,23 +58,23 @@ public class LoginBean {
         ResourceBundle bundle = BundleFactory.getBundle("maf.isenframework.isenframeworkapplication.ApplicationControllerBundle");
         
         if (formLogin == null || (formPassword == null && formGesture == null)) {
-            setFormMessage(Utility.getResourceString(bundle, "LOGIN_WELCOME", null));
+            setFormMessage(0);
             return false;
         }
         
         User foundUser = dao.getByLogin(formLogin);
         if(foundUser == null){
-            setFormMessage(Utility.getResourceString(bundle, "LOGIN_FAILED_USER_NAME", null));
+            setFormMessage(1);
             return false;
         }
         if (foundUser.hasPassword()) {
             if ( ! foundUser.verifyPassword(formPassword)) {
-                setFormMessage(Utility.getResourceString(bundle, "LOGIN_FAILED_USER_PASSWORD", null));
+                setFormMessage(2);
                 return false;
             }
         } else {
             if ( ! foundUser.verifyGesture(formGesture)) {
-                setFormMessage(Utility.getResourceString(bundle, "LOGIN_FAILED_USER_GESTURE", null));
+                setFormMessage(3);
                 return false;
             }
         }
@@ -88,7 +82,7 @@ public class LoginBean {
         setLogged(foundUser);
         setFormPassword(null);
         setFormGesture(null);
-        setFormMessage(Utility.getResourceString(bundle, "LOGIN_WELCOME", null));
+        setFormMessage(0);
         
         UserBean userBean = (UserBean) AdfmfJavaUtilities.getELValue("#{UserBean}");
         userBean.setCurrent(foundUser);
@@ -147,12 +141,12 @@ public class LoginBean {
         propertyChangeSupport.firePropertyChange("logged", oldLogged, logged);
     }
 
-    public String getFormMessage() {
+    public int getFormMessage() {
         return formMessage;
     }
 
-    public void setFormMessage(String formMessage) {
-        String oldFormMessage = this.formMessage;
+    public void setFormMessage(int formMessage) {
+        int oldFormMessage = this.formMessage;
         this.formMessage = formMessage;
         propertyChangeSupport.firePropertyChange("formMessage", oldFormMessage, formMessage);
     }

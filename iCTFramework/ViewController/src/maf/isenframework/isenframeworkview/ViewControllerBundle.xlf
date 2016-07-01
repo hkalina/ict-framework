@@ -471,6 +471,37 @@
         <target/>
       </trans-unit>
       <!--End Manage applications view-->
+      <trans-unit id="MANIFEST">
+        <source><![CDATA[
+        <p align="center">Application was developed as part of non-formal <b>Computer Therapy</b> project at <b>BUT FIT</b> within the support of <b>Red Hat</b>.</p>
+        ]]></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN_WELCOME">
+        <source>Welcome</source>
+        <target/>
+        <note>first welcome </note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_NAME">
+        <source>Unknown login!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_NO_PASSWORD">
+        <source>No password or gesture filled!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_PASSWORD">
+        <source>Wrong password!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="LOGIN_FAILED_USER_GESTURE">
+        <source>Wrong gesture!</source>
+        <target/>
+        <note></note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
