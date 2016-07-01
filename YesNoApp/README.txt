@@ -10,6 +10,9 @@ cordova platform add <android/ios>
 ionic run <android/ios>
 
 Troubleshooting:
+  general:
+    cordova platform rm android
+    cordova platform add android
   fatal error: 'Cordova/CDVViewController.h' file not found
     cordova platform update ios
   unable to install iso-deploy:

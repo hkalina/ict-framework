@@ -84,4 +84,9 @@
     <plugin name="cordova-plugin-file-transfer" spec="~1.5.0" />
     <plugin name="cordova-plugin-mediapicker" spec="https://github.com/an-rahulpandey/cordova-plugin-mediapicker.git" />
     <plugin name="cordova-plugin-media" spec="https://github.com/apache/cordova-plugin-media.git" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="https://github.com/infil00p/cordova-crosswalk-engine.git" />
+    <preference name="xwalkVersion" value="14+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
 </widget>
