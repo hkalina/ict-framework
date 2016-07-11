@@ -31,14 +31,16 @@ IPA obtaining
 cordova build --release ios
 cd platforms/ios
 /usr/bin/xcodebuild archive -project YesNoApp.xcodeproj -scheme YesNoApp -archivePath YesNoAppArchive
-xcodebuild -exportArchive -exportFormat IPA -archivePath YesNoAppArchive.xcarchive -exportPath yesno.ipa -exportProvisioningProfile "iOS Team Provisioning Profile: com.ionicframework.yesnoapp429803"
+xcodebuild -exportArchive -exportFormat IPA -archivePath YesNoAppArchive.xcarchive -exportPath yesno.ipa -exportProvisioningProfile "iOS Team Provisioning Profile: *"
 
 APK obtaining
 *************
 
 cordova build --release android
-cp platforms/android/build/outputs/apk/android-release-unsigned.apk ../YesNoApp.apk
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../community.keystore ../YesNoApp.apk community
+cp platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk ../YesNoApp-armv7.apk
+cp platforms/android/build/outputs/apk/android-x86-release-unsigned.apk ../YesNoApp-x86.apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../community.keystore ../YesNoApp-armv7.apk community
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../community.keystore ../YesNoApp-x86.apk community
 
 To install from APK:
 $ANDROID_HOME/platform-tools/adb install YesNoApp.apk
