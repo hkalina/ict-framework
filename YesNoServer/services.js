@@ -15,6 +15,7 @@ module.exports = function(app, storage, passport) {
     console.log(req.body);
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -39,6 +40,7 @@ module.exports = function(app, storage, passport) {
            function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -73,6 +75,7 @@ module.exports = function(app, storage, passport) {
            function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -142,6 +145,7 @@ module.exports = function(app, storage, passport) {
           function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -180,6 +184,7 @@ module.exports = function(app, storage, passport) {
            function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -199,6 +204,7 @@ module.exports = function(app, storage, passport) {
            function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
@@ -269,6 +275,7 @@ module.exports = function(app, storage, passport) {
           function(req, res) {
     if (req.user.username == 'demo') {
       res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+      return;
     }
     
     var session = storage.persistenceStore.getSession();
