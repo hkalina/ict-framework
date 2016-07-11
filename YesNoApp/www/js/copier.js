@@ -84,6 +84,7 @@ angular.module('yesno.copier', ['base64'])
       }, function(err) {
         alert("Odstraňování seznamu karet na serveru selhalo: "+err.data);
         console.log(err);
+        callback();
       });
     },
     
@@ -305,6 +306,7 @@ angular.module('yesno.copier', ['base64'])
         }, function(err) {
           alert("Nepodařilo se nahrát zvuk na server!");
           console.log(err);
+          okCallback(null);
         }, function (progress) {
           console.log(progress);
         });
@@ -328,6 +330,7 @@ angular.module('yesno.copier', ['base64'])
         }, function(err) {
           alert("Nepodařilo se nahrát obrázek na server!");
           console.log(err);
+          okCallback(null);
         }, function (progress) {
           console.log(progress);
         });
@@ -344,6 +347,7 @@ angular.module('yesno.copier', ['base64'])
       }, function(err) {
         alert("Vytvoření karty selhalo!");
         console.log(err);
+        okCallback(null);
       });
     },
     
@@ -431,6 +435,7 @@ angular.module('yesno.copier', ['base64'])
           }, function(err) {
             alert("Vytvoření páru na serveru selhalo: "+err);
             console.log(err);
+            callback();
           });
         });
       };
@@ -447,6 +452,7 @@ angular.module('yesno.copier', ['base64'])
       }, function(err) {
         alert("Vytvoření seznamu na serveru selhalo: "+err);
         console.log(err);
+        onCopy();
       });
     },
     

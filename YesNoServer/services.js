@@ -13,6 +13,10 @@ module.exports = function(app, storage, passport) {
            passport.authenticate('basic', { session: false }),
            function(req, res) {
     console.log(req.body);
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     var card = new storage.entities.Card(session);
     
@@ -33,6 +37,10 @@ module.exports = function(app, storage, passport) {
   app.post('/cards/update', bodyParser.json(),
            passport.authenticate('basic', { session: false }),
            function(req, res) {
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     storage.entities.Card.load(session, req.body.id, function(card) {
       if (card == null) {
@@ -63,6 +71,10 @@ module.exports = function(app, storage, passport) {
            upload.single('file'),
            passport.authenticate('basic', { session: false }),
            function(req, res) {
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     storage.entities.Card.load(session, req.body.id, function(card) {
       if (card == null) {
@@ -128,6 +140,10 @@ module.exports = function(app, storage, passport) {
   app.delete('/cards/delete/:id',
           passport.authenticate('basic', { session: false }),
           function(req, res) {
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     storage.entities.Card.load(session, req.params.id, function(card) {
       if (card == null) {
@@ -162,7 +178,10 @@ module.exports = function(app, storage, passport) {
   app.post('/lists/create', bodyParser.json(),
            passport.authenticate('basic', { session: false }),
            function(req, res) {
-    console.log(req.body);
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     var list = new storage.entities.List(session);
     
@@ -178,6 +197,10 @@ module.exports = function(app, storage, passport) {
   app.post('/lists/addpair', bodyParser.json(),
            passport.authenticate('basic', { session: false }),
            function(req, res) {
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     storage.entities.List.load(session, req.body.id, function(list) {
       if (list == null) {
@@ -244,6 +267,10 @@ module.exports = function(app, storage, passport) {
   app.delete('/lists/delete/:id',
           passport.authenticate('basic', { session: false }),
           function(req, res) {
+    if (req.user.username == 'demo') {
+      res.send('Pristup odepren! Uzivatel demo muze jen cist!', 403);
+    }
+    
     var session = storage.persistenceStore.getSession();
     storage.entities.List.load(session, req.params.id, function(list) {
       if (list == null) {
